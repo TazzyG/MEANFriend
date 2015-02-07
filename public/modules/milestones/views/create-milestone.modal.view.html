@@ -1,0 +1,70 @@
+<section data-ng-controller="MilestonesCreateController as milestonesCreateCtrl">
+    <div class="modal-header">
+        <h3 class="modal-title">New Milestone</h3>
+    </div>
+    <div class="modal-body">
+        <form name="createMilestoneForm">
+            <fieldset>
+                <div class="row">
+                    <div class="form-group">
+                        <div data-ng-show="error" class="text-center text-danger">
+                            <div class="alert alert-danger" role="alert">
+                                <strong data-ng-bind="error"></strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 text-center">
+                        <i class="glyphicon glyphicon-calendar cust-profile"
+                               ng-class= "{'text-primary': milestonesCreateCtrl.major, 'text-pink': !milestonesCreateCtrl.major}"
+                                ></i>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label" for="name">Description</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="milestonesCreateCtrl.name" id="name" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="major">Major Milestone</label>
+                            <div class="controls">
+                                <input type="checkbox" data-ng-model="milestonesCreateCtrl.major" id="major" class="form-control checkbox-left">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-sm-push-6">
+                        <div class="form-group">
+                            <label class="control-label" for="achievement">Achievement</label>
+                            <div class="controls">
+                                <select data-ng-model="milestonesCreateCtrl.achievement" id="achievement" class="form-control"
+                                        ng-options="achievement.id as achievement.opt for achievement in achievementOptions">
+                                        <option value="">-- Select achievement --</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="event">Event</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="milestonesCreateCtrl.event" id="event" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-sm-pull-6">
+                        <div class="form-group">
+                            <label class="control-label" for="nextDate">Next Date</label>
+                            <div class="controls">
+                                <input type="date" data-ng-model="milestonesCreateCtrl.nextDate" id="nextDate" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success btn-lg" ng-click="milestonesCreateCtrl.create();ok()" ng-disabled="createMilestoneForm.$invalid">Save & Close</button>
+        <button class="btn btn-warning btn-lg" ng-click="cancel()">Cancel</button>
+    </div>
+</section>

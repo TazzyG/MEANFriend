@@ -1,0 +1,67 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+.content {
+    padding: 30px 0;
+
+}
+
+
+.undecorated-link:hover {
+	text-decoration: none;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none !important;
+}
+.ng-invalid.ng-dirty {
+	border-color: #FA787E;
+}
+.ng-valid.ng-dirty {
+	border-color: #78FA89;
+}
+
+
+
+
+
+
+/**************************************************************
+LAURIE'S CSS
+***************************************************************/
+
+body {
+    background: #e7e7e5;
+}
+
+.glyphicon {
+    font-size: 50px;
+    text-align: center;
+}
+
+.caption-1 {
+    font-family: 'Rock Salt', cursive;
+    color: #ffffff;
+    line-height: 2em;
+
+}
+
+
+.navbar-brand {
+    font-weight: bold;
+}
+.cta {
+
+    font-weight: 200;
+}
+.first-button {
+
+    padding-top: 2em;
+    padding-bottom: 35%;
+}
+
+
+
+
+

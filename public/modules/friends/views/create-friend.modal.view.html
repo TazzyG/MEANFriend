@@ -1,0 +1,98 @@
+<section data-ng-controller="FriendsCreateController as friendCreateCtrl">
+    <div class="modal-header">
+        <h3 class="modal-title">New Friend</h3>
+    </div>
+    <div class="modal-body">
+        <form class="createFriendForm">
+            <fieldset>
+                <div class="row">
+                    <div class="form-group">
+                        <div data-ng-show="error" class="text-center text-danger">
+                            <div class="alert alert-danger" role="alert">
+                                <strong data-ng-bind="error"></strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 text-center">
+                        <i class="glyphicon glyphicon-user cust-profile"
+                           ng-class="{'text-primary': friendCreateCtrl.founder, 'text-pink': !friendCreateCtrl.founder}"></i>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label" for="firstName">First Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="friendCreateCtrl.firstName" id="firstname" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="lastName">Last Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="friendCreateCtrl.lastName" id="lastname" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="email">email ...</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="friendCreateCtrl.email" id="email" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="skill1">My best skill is ...</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="friendCreateCtrl.skill1" id="skill1" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-sm-push-6">
+                        <div class="form-group">
+                            <label class="control-label" for="skill2">I'm also good at</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="friendCreateCtrl.skill2" id="skill2" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="wifm1">First personal goal</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="friendCreateCtrl.wifm1" id="wifm1" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-sm-pull-6">
+                        <div class="form-group">
+                            <label class="control-label" for="founder">I want to be a founder</label>
+                            <div class="controls">
+                                <input type="checkbox" data-ng-model="friendCreateCtrl.founder" id="founder" class="form-control checkbox-left">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="myStyle">My preferred style</label>
+                            <div class="controls">
+                                <select data-ng-model="friendCreateCtrl.myStyle" id="myStyle" class="form-control"
+                                        ng-options="myStyle.id as myStyle.opt for myStyle in myStyleOptions">
+                                    <option value="">--Select myStyle --</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label" for="website">My personal website</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="friendCreateCtrl.website" id="website" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success btn-lg" ng-click="friendCreateCtrl.create();ok()" ng-disabled="createFriendForm.$invalid">Save & Close</button>
+        <button class="btn btn-warning btn-lg" ng-click="cancel()">Cancel</button>
+    </div>
+</section>

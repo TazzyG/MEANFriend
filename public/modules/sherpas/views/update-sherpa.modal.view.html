@@ -1,0 +1,59 @@
+<section data-ng-controller="SherpasUpdateController as suCtrl">
+    <div class="modal-header">
+        <h3 class="modal-title">Edit:{{theSherpa.sherpaName}}</h3>
+    </div>
+    <div class="modal-body">
+            <form name="updateSherpaform">
+                <fieldset>
+                    <div class="row">
+                        <div class="form-group">
+                            <div data-ng-show="error" class="text-center text-danger">
+                                <div class="alert alert-danger" role="alert">
+                                    <strong data-ng-bind="error"></strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 text-center">
+                            <i class="glyphicon eye-open cust-profile"
+                               ng-class= "{'text-primary': theSherpa.sherpa, 'text-pink': !theSherpa.sherpa}"
+                                    ></i>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label" for="challenge">I like to help with</label>
+                                <div class="controls">
+                                    <select data-ng-model="theSherpa.challenge" id="challenge" class="form-control"
+                                            ng-options="challenge.id as challenge.opt for challenge in challengeOptions">
+                                        <option value="">--Select your favorite -- </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-push-6">
+                            <div class="form-group">
+                                <label class="control-label" for="sherpa">Sherpa Assigned</label>
+                                <div class="controls">
+                                    <input type="checkbox" data-ng-model="theSherpa.sherpa" id="sherpa" class="form-control checkbox-left">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-sm-pull-6">
+                            <div class="form-group">
+                                <label class="control-label" for="sherpaName">Sherpa Name</label>
+                                <div class="controls">
+                                    <input type="text" data-ng-model="theSherpa.sherpaName" id="sherpaName" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success btn-lg" ng-click="suCtrl.update(theSherpa); ok()" ng-disabled = "updateSherpaform.$invalid">Update & Close</button>
+        <button class="btn btn-warning btn-lg" ng-click="cancel()">Cancel</button>
+    </div>
+
+</section>

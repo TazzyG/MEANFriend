@@ -1,0 +1,64 @@
+<section data-ng-controller="SherpasCreateController as scCtrl ">
+    <div class="modal-header">
+        <h3 class="modal-title">New Sherpa</h3>
+    </div>
+    <div class="modal-body">
+        <form name="createCustomerForm">
+            <fieldset>
+                <div class="row">
+                    <div class="form-group">
+                        <div data-ng-show="error" class="text-center text-danger">
+                            <div class="alert alert-danger" role="alert">
+                                <strong data-ng-bind="error"></strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 text-center">
+                        <i class="glyphicon glyphicon-eye-open cust-profile"
+                           ng-class= "{'text-primary': scCtrl.sherpa, 'text-danger': !scCtrl.sherpa}"
+                                ></i>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label" for="challenge">I like to help with</label>
+                            <div class="controls">
+                                <select data-ng-model="theSherpa.Sherpa.challenge" id="challenge" class="form-control"
+                                ng-options="challenge.id as challenge.opt for challenge in challengeOptions">
+                                <option value="">--Select your favorite -- </option>
+                                </select>
+                            </div>
+                            <!--<div class="controls">-->
+                                <!--<select data-ng-model="theFroadadie.myStyle" id="myStyle" class="form-control"-->
+                                        <!--ng-options="myStyle.id as myStyle.opt for myStyle in myStyleOptions">-->
+                                    <!--<option value="">--Select myStyle --</option>-->
+                                <!--</select>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-sm-push-6">
+                        <div class="form-group">
+                            <label class="control-label" for="sherpa">Sherpa Assigned</label>
+                            <div class="controls">
+                                <input type="checkbox" data-ng-model="scCtrl.sherpa" id="sherpa" class="form-control checkbox-left">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-sm-pull-6">
+                        <div class="form-group">
+                            <label class="control-label" for="sherpaName">Sherpa Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="scCtrl.sherpaName" id="sherpaName" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success btn-lg" ng-click="scCtrl.create();ok()" ng-disabled="createSherpaForm.$invalid">Save & Close</button>
+        <button class="btn btn-warning btn-lg" ng-click="cancel()">Cancel</button>
+    </div>
+</section>

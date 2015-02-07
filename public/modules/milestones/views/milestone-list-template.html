@@ -1,0 +1,31 @@
+<div class="row extra-space">
+	<div class="list-group">
+		<div class="col-xs-6 col-sm-4 extra-space" data-ng-repeat="milestone in milestonesCtrl.milestones | filter:searchText">
+			<a ng-click="milestonesCtrl.modalUpdate('lg', milestone)" class="list-group-item">
+				<h4 class="cust-list text-center">
+					<i class="glyphicon glyphicon-calendar cust-list"
+					   ng-class="{'text-primary': milestone.major, 'text-pink': !milestone.major}"></i>
+				</h4>
+				<div class="row">
+					<div class="col-xs-10 col-xs-offset-1">
+						<h4>{{milestone.name}} </h4>
+						<small class="list-group-item-text text-muted">
+							<span data-ng-bind="milestone.created | date:'short'"></span>
+
+                        <span class="pull-right">
+                            <button class="btn btn-default btn-sm" ng-click="milestonesCtrl.remove(milestone)">
+								<i class="glyphicon glyphicon-trash trash"></i>
+							</button>
+                        </span>
+
+						</small>
+					</div>
+				</div>
+
+			</a>
+		</div>
+	</div>
+	<div class="alert alert-warning text-center" data-ng-hide="!milestonesCtrl.milestones.$resolved || milestonesCtrl.milestones.length">
+		No Milestones yet, why don't you <a ng-click="milestonesCtrl.modalCreate('lg')">create one</a>?
+	</div>
+</div>

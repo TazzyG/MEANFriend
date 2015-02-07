@@ -1,0 +1,81 @@
+<section data-ng-controller="JourneysCreateController as journeysCreateCtrl">
+    <div class="modal-header">
+        <h3 class="modal-title">New Journey</h3>
+    </div>
+    <div class="modal-body">
+        <form name="createJourneyForm">
+            <fieldset>
+                <div class="row">
+                    <div class="form-group">
+                        <div data-ng-show="error" class="text-center text-danger">
+                            <div class="alert alert-danger" role="alert">
+                                <strong data-ng-bind="error"></strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 text-center">
+                        <i class="glyphicon glyphicon-road cust-profile"
+                           ng-class="{'text-primary': journeysCreateCtrl.recruiting, 'text-pink': !journeysCreateCtrl.recruiting}"></i>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label" for="initiator">Initiated by</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="journeysCreateCtrl.initiator" id="initiator" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="description">Short Description</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="journeysCreateCtrl.description" id="description" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="sponsor">Sponsor</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="journeysCreateCtrl.sponsor" id="sponsor" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-sm-push-6">
+                        <div class="form-group">
+                            <label class="control-label" for="googleDocs">Google Docs Files</label>
+                            <div class="controls">
+                                <input type="checkbox" data-ng-model="journeysCreateCtrl.googleDocs" id="googleDocs" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="stage">Stage</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="journeysCreateCtrl.stage" id="stage" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-sm-pull-6 extra-space">
+                        <div class="form-group">
+                            <label class="control-label" for="recruiting">Recruiting</label>
+                            <div class="controls">
+                                <input type="checkbox" data-ng-model="journeysCreateCtrl.recruiting" id="recruiting" class="form-control checkbox-left">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="mainTechnology">Favorite Technology</label>
+                            <div class="controls">
+                                <select data-ng-model="journeysCreateCtrl.mainTechnology" id="mainTechnology" class="form-control"
+                                        ng-options="mainTechnology.id as mainTechnology.opt for mainTechnology in mainTechnologyOptions">
+                                    <option value="">--Select mainTechnology--</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success btn-lg" ng-click="journeysCreateCtrl.create();ok()" ng-disabled="createJourneyForm.$invalid">Save & Close</button>
+        <button class="btn btn-warning btn-lg" ng-click="cancel()">Cancel</button>
+    </div>
+</section>

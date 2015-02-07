@@ -1,0 +1,27 @@
+<section data-ng-controller="MilestonesController as milestonesCtrl">
+    <div class="page-header">
+        <h1>Milestones</h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" ng-model="searchText" placeholder="Search...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                </span>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 text-center">
+            <button type="button" class="btn btn-success text-center btn-spacing" ng-click="milestonesCtrl.modalCreate('lg')">
+                <i class="glyphicon glyphicon-calendar"></i> <br>
+                New Milestone
+            </button>
+        </div>
+    </div>
+    </br>
+    </br>
+    <milestone-list></milestone-list>
+
+</section>
+
+
