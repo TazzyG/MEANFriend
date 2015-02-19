@@ -109,14 +109,16 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
 'use strict';
 
 
-angular.module('core').controller('HomeController',['$scope', 'Authentication',
-	function($scope, Authentication) {
+angular.module('core').controller('HomeController',['$scope', 'Authentication', 'video',
+	function($scope, Authentication, Video) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
-
-
+        document.createElement('video');
 
 	}
+
+
+
 ]);
 
 
@@ -361,7 +363,7 @@ angular.module('friends').controller('FriendsCreateController', ['$scope', 'Frie
 
 angular.module('friends').controller('FriendsUpdateController', ['$scope', 'Friends', 'Notify',
     function($scope, Friends, Notify ) {
-        // Friendupdate controller logic
+        // Friend update controller logic
 
         $scope.myStyleOptions = [
             {id: '1', opt:'Hermit'},
